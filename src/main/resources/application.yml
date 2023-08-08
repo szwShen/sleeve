@@ -1,0 +1,17 @@
+missyou:
+  api-package: com.szw.missyou.api
+spring:
+  profiles:
+    active: dev
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+  jackson:
+     property-naming-strategy: SNAKE_CASE
+     serialization:
+           WRITE_DATES_AS_TIMESTAMPS: false # 是否序列化日期为时间戳，默认为true
+           INDENT_OUTPUT: true
+           FAIL_ON_EMPTY_BEANS: false
+
