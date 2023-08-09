@@ -16,9 +16,9 @@ import java.lang.annotation.*;
 @Target({ElementType.FIELD})
 @Constraint(validatedBy = TokenVlidate.class)
 public @interface TokenEqual {
-    int min() default 4;
+    int min() default 6;
 
-    int max() default 6;
+    int max() default 32;
 
     String message() default "password is not equal";
 

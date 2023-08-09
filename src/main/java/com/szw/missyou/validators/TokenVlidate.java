@@ -1,6 +1,8 @@
 package com.szw.missyou.validators;
 
+
 import com.szw.missyou.dto.Person;
+import org.thymeleaf.util.StringUtils;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -12,20 +14,23 @@ import javax.validation.ConstraintValidatorContext;
  * @version: 1.0
  */
 
-public class TokenVlidate implements ConstraintValidator<PasswordEqual, Person> {
-    private int min;
-    private int max;
+public class TokenVlidate implements ConstraintValidator<TokenEqual, String> {
+    private Integer min;
+    private Integer max;
+
 
     @Override
-    public void initialize(PasswordEqual constraintAnnotation) {
+    public void initialize(TokenEqual constraintAnnotation) {
         this.min = constraintAnnotation.min();
         this.max = constraintAnnotation.max();
-        ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
     @Override
-    public boolean isValid(Person person, ConstraintValidatorContext constraintValidatorContext) {
-        System.out.println(person.getPassword2().equals(person.getPassword1()));
-        return person.getPassword1().equals(person.getPassword2());
+    public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
+        if (StringUtils.isEmpty(s)) {
+            return true;
+
+        }
+        return s.length() >= this.min && s.length() <= this.max;
     }
 }

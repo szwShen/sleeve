@@ -9,9 +9,13 @@ spring:
         hbm2ddl:
           auto: update
   jackson:
-     property-naming-strategy: SNAKE_CASE
-     serialization:
-           WRITE_DATES_AS_TIMESTAMPS: false # 是否序列化日期为时间戳，默认为true
-           INDENT_OUTPUT: true
-           FAIL_ON_EMPTY_BEANS: false
+    property-naming-strategy: SNAKE_CASE
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false # 是否序列化日期为时间戳，默认为true
+      INDENT_OUTPUT: true
+      FAIL_ON_EMPTY_BEANS: false
 
+  wx:
+    appid: 111
+    appsecret: 11
+    code2Session: 11

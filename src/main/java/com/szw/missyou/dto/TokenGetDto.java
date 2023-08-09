@@ -1,5 +1,8 @@
 package com.szw.missyou.dto;
 
+import com.szw.missyou.enumeration.LoginType;
+import com.szw.missyou.validators.TokenEqual;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.NotBlank;
@@ -10,13 +13,12 @@ import org.hibernate.validator.constraints.NotBlank;
  * @Description: com.szw.missyou.dto
  * @version: 1.0
  */
-@Getter
-@Setter
+@Data
 public class TokenGetDto {
-    @NotBlank(message = "不许为空")
+    @NotBlank(message = "account不许为空")
     private String account;
-    @TokenPassword(min = 6, max = 30, message = "{token.password}")
+    @TokenEqual(min = 6, max = 30, message = "{token.password}")
     private String password;
-    private LoginType type;
+    private LoginType loginType;
 
 }
